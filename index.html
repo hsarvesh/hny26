@@ -130,24 +130,6 @@
     color: rgba(255, 255, 255, 0.3);
   }
 
-  /* color customizer */
-  .color-customizer {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-  }
-  .color-swatch {
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: all 0.2s;
-  }
-  .color-swatch:hover { transform: scale(1.1); }
-  .color-swatch.active { border-color: #fff; box-shadow: 0 0 12px currentColor; }
-
   /* quote of the day */
   .quote {
     margin-top: 16px;
@@ -309,15 +291,6 @@
         <input type="text" id="messageInput" placeholder="Add your own message or leave blank" maxlength="120" aria-label="Custom message input">
       </div>
 
-      <div class="color-customizer" aria-label="Choose confetti colors">
-        <button class="color-swatch active" data-color="#FFD166" title="Yellow" aria-label="Choose yellow confetti" style="background: #FFD166;"></button>
-        <button class="color-swatch" data-color="#FFB4A2" title="Pink" aria-label="Choose pink confetti" style="background: #FFB4A2;"></button>
-        <button class="color-swatch" data-color="#C8FFB4" title="Green" aria-label="Choose green confetti" style="background: #C8FFB4;"></button>
-        <button class="color-swatch" data-color="#A0E7E5" title="Cyan" aria-label="Choose cyan confetti" style="background: #A0E7E5;"></button>
-        <button class="color-swatch" data-color="#FF6B9D" title="Hot Pink" aria-label="Choose hot pink confetti" style="background: #FF6B9D;"></button>
-        <button class="color-swatch" data-color="#C44569" title="Red" aria-label="Choose red confetti" style="background: #C44569;"></button>
-      </div>
-
       <div class="quote" id="dailyQuote" aria-label="Inspirational quote">"The new year brings new beginnings — make them count! ⭐"</div>
 
       <div class="actions" aria-hidden="false">
@@ -421,30 +394,6 @@ function getRandomQuote() {
 (function() {
   const quoteEl = document.getElementById('dailyQuote');
   quoteEl.textContent = getRandomQuote();
-})();
-
-/* Color customizer */
-(function() {
-  const swatches = document.querySelectorAll('.color-swatch');
-  let selectedColor = '#FFD166';
-  
-  swatches.forEach(swatch => {
-    swatch.addEventListener('click', () => {
-      document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
-      swatch.classList.add('active');
-      selectedColor = swatch.dataset.color;
-      localStorage.setItem('nyc2026_color', selectedColor);
-    });
-  });
-  
-  // Load saved color
-  const savedColor = localStorage.getItem('nyc2026_color');
-  if (savedColor) {
-    selectedColor = savedColor;
-    document.querySelector(`[data-color="${savedColor}"]`).classList.add('active');
-  }
-  
-  window.getSelectedColor = () => selectedColor;
 })();
 
 /* Simple particle + confetti system for background & celebration */
