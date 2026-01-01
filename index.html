@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Happy New Year 2026 🎉</title>
+<meta name="description" content="Happy New Year 2026 — a clean, shareable animated greeting with personalized messages." />
+<!-- Open Graph for Social Media Sharing -->
+<meta property="og:title" content="Happy New Year 2026 🎉" />
+<meta property="og:description" content="Wishing you a wonderful 2026! Open to view an animated greeting with confetti & personalized messages." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect fill='%230f1724' width='1200' height='630'/%3E%3Ctext x='600' y='315' font-size='120' font-weight='bold' text-anchor='middle' fill='%23f9d66e' dominant-baseline='middle'%3EHappy New Year 2026 🎉%3C/text%3E%3C/svg%3E" />
+<meta property="og:url" content="" id="ogUrl" />
+<meta property="og:site_name" content="HNY2026" />
+<!-- Twitter Card Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Happy New Year 2026 🎉" />
+<meta name="twitter:description" content="A shareable New Year greeting with confetti, animations & personalized messages!" />
+<meta name="twitter:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect fill='%230f1724' width='1200' height='630'/%3E%3Ctext x='600' y='315' font-size='120' font-weight='bold' text-anchor='middle' fill='%23f9d66e' dominant-baseline='middle'%3EHappy New Year 2026 🎉%3C/text%3E%3C/svg%3E" />
+<!-- LinkedIn Tags -->
+<meta property="linkedin:title" content="Happy New Year 2026 🎉" />
+<meta property="linkedin:description" content="Share your New Year wishes with style! Personalized greeting cards with animations." />
+<!-- Theme & Appearance -->
+<meta name="theme-color" content="#f9d66e" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<style>
+  :root{
+    --bg1: #0f1724;
+    --bg2: #071029;
+    --accent: #f9d66e;
+    --muted: rgba(255,255,255,0.7);
+    --glass: rgba(255,255,255,0.06);
+    --shadow: 0 10px 30px rgba(2,6,23,0.6);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color: #fff;
+    background: linear-gradient(120deg,var(--bg1), var(--bg2));
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  /* animated background gradient */
+  .bg {
+    position:fixed;
+    inset:0;
+    z-index:0;
+    background: linear-gradient(120deg, rgba(12,18,36,0.9), rgba(3,10,20,0.95));
+    animation: bgshift 12s linear infinite;
+    filter: contrast(1.05) saturate(1.05);
+  }
+  @keyframes bgshift {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+
+  /* center card */
+  .card {
+    position:relative;
+    z-index:5;
+    width:min(920px, 94vw);
+    max-width:920px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:16px;
+    padding:32px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255,255,255,0.04);
+    display:flex;
+    gap:20px;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    -webkit-backdrop-filter: blur(6px) saturate(120%);
+    backdrop-filter: blur(6px) saturate(120%);
+  }
+
+  /* share counter */
+  .share-counter {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 10;
+    background: rgba(249, 214, 110, 0.1);
+    border: 1px solid rgba(249, 214, 110, 0.2);
+    color: var(--accent);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    animation: slideIn 0.3s ease;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .share-counter:hover {
+    background: rgba(249, 214, 110, 0.15);
+    transform: scale(1.05);
+  }
+  @keyframes slideIn { from { transform: translateX(100px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+  
+  /* social share buttons */
+  .social-share-container {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .social-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.04);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .social-btn:hover {
+    background: rgba(249, 214, 110, 0.2);
+    border-color: rgba(249, 214, 110, 0.3);
+  }
+  .social-btn:active { transform: scale(0.95); }
+  
+  /* QR Code Modal */
+  .qr-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+  }
+  .qr-modal.active { display: flex; }
+  .qr-content {
+    background: linear-gradient(180deg, rgba(15,23,36,0.98), rgba(7,16,41,0.98));
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 320px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  }
+  .qr-content h3 {
+    margin: 0 0 16px 0;
+    color: var(--accent);
+    font-size: 18px;
+  }
+  #qrCode {
+    width: 240px;
+    height: 240px;
+    margin: 0 auto 16px;
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+  }
+  .qr-close {
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .qr-close:hover { background: rgba(255,255,255,0.12); }
+
+  /* countdown timer */
+  .countdown {
+    text-align: center;
+    margin-bottom: 16px;
+    padding: 12px;
+    background: rgba(249, 214, 110, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(249, 214, 110, 0.1);
+  }
+  .countdown-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .countdown-time { font-size: 18px; font-weight: 700; color: var(--accent); margin-top: 4px; font-family: 'Courier New', monospace; }
+
+  /* custom message input */
+  .message-input-group {
+    margin-bottom: 16px;
+  }
+  .message-input-group label {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .message-input-group input {
+    width: 100%;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+    transition: border-color 0.2s;
+  }
+  .message-input-group input:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .message-input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* quote of the day */
+  .quote {
+    margin-top: 16px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 2px solid var(--accent);
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* reply-modal (kept from original) */
+  .reply-modal h3 { margin:0 0 8px 0; color:var(--accent) }
+  .reply-modal label.msg-label { margin-top:10px; display:block }
+  .reply-actions { display:flex; gap:10px; margin-top:12px; align-items:center }
+  .remember-label { margin-left:auto; font-size:13px; color:var(--muted) }
+  .remember-label input { margin-right:8px }
+  .reply-list{margin-top:12px}
+
+
+  .text {
+    flex:1 1 380px;
+    min-width:220px;
+  }
+  h1{
+    margin:0;
+    font-size:clamp(28px, 6vw, 56px);
+    line-height:1.02;
+    letter-spacing:-1px;
+    color:var(--accent);
+    text-shadow: 0 6px 30px rgba(249,214,110,0.04), 0 2px 6px rgba(0,0,0,0.6);
+  }
+  p.lead{
+    margin:8px 0 18px 0;
+    color:var(--muted);
+    font-size:clamp(14px, 2.2vw, 18px);
+  }
+
+  .actions{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    -webkit-tap-highlight-color: transparent;
+    padding:10px 16px;
+    border-radius:10px;
+    border: none;
+    cursor:pointer;
+    font-weight:600;
+    background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:active{transform: translateY(1px)}
+  .btn.primary{
+    background: linear-gradient(90deg, #f9d66e, #ffbd4a);
+    color: #0b0b08;
+  }
+  .btn.ghost{
+    background: transparent;
+    border:1px solid rgba(255,255,255,0.06);
+  }
+
+  /* visual year badge */
+  .year {
+    width:260px;
+    min-width:200px;
+    text-align:center;
+    padding:18px;
+    border-radius:12px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.03);
+  }  .year-highlight{opacity:.96}  .big-year{
+    font-size:clamp(34px, 6.5vw, 64px);
+    font-weight:800;
+    margin:0;
+    color:#fff;
+    text-shadow: 0 6px 22px rgba(0,0,0,0.6);
+  }
+  .sub{
+    margin-top:6px;
+    color:var(--muted);
+    font-size:13px;
+  }
+
+
+  /* canvas layer (particles, confetti) */
+  canvas#fx {
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+  }
+
+  /* toast */
+  .toast{
+    position:fixed;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:28px;
+    z-index:20;
+    background: rgba(2,6,23,0.9);
+    color:#fff;
+    padding:10px 14px;
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
+    display:none;
+    font-size:14px;
+  }
+
+  footer{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    color:rgba(255,255,255,0.6);
+    font-size:12px;
+    z-index:6;
+  }
+
+  /* accessibility: reduce motion */
+  @media (prefers-reduced-motion: reduce){
+    .bg { animation: none; }
+    canvas#fx { display:none; }
+  }
+
+  @media (max-width:640px){
+    .card{ padding:20px; gap:14px; }
+    .year{ order:-1; width:100%; }
+    .text{ text-align:center }
+    .actions{ justify-content:center; }
+  }
+
+</style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <div class="share-counter" id="shareCounter" title="Total shares">
+    <span aria-label="Total shares">🎉</span> <span id="shareCount">0</span> shares
+  </div>
+
+  <main class="card" role="main" aria-labelledby="greetingHeading">
+    <div class="text">
+      <div class="countdown">
+        <div class="countdown-label">Time in 2026</div>
+        <div class="countdown-time" id="countdown" aria-live="polite" aria-label="Countdown timer">--:--:--</div>
+      </div>
+
+      <h1 id="greetingHeading"><span id="customGreeting">Happy New Year 2026</span> 🎉</h1>
+      <p class="lead" id="customMessage">Wishing you a year of happiness, health, and bold new opportunities. Share this greeting with friends and family!</p>
+
+      <div class="message-input-group">
+        <label for="messageInput">✏️ Personalize your message:</label>
+        <input type="text" id="messageInput" placeholder="Add your own message or leave blank" maxlength="120" aria-label="Custom message input">
+      </div>
+
+      <div class="quote" id="dailyQuote" aria-label="Inspirational quote">"The new year brings new beginnings — make them count! ⭐"</div>
+
+      <div class="actions" aria-hidden="false">
+        <button class="btn primary" id="shareBtn" title="Share this greeting">Share 🎁</button>
+        <button class="btn ghost" id="replayBtn" title="Replay confetti">Replay 🎆</button>
+        <button class="btn ghost" id="qrBtn" title="Generate QR code">QR Code 📱</button>
+      </div>
+      
+      <div class="social-share-container" id="socialShare">
+        <button class="social-btn" id="twitterBtn" title="Share on Twitter/X">𝕏</button>
+        <button class="social-btn" id="facebookBtn" title="Share on Facebook">f</button>
+        <button class="social-btn" id="linkedinBtn" title="Share on LinkedIn">in</button>
+        <button class="social-btn" id="whatsappBtn" title="Share on WhatsApp">💬</button>
+      </div>
+    </div>
+
+    <aside class="year" aria-hidden="true">
+      <p class="big-year">2026</p>
+      <div class="sub">A bright start — Happy New Year!</div>
+    </aside>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- QR Code Modal -->
+  <div class="qr-modal" id="qrModal">
+    <div class="qr-content">
+      <h3>Share via QR Code</h3>
+      <div id="qrCode"></div>
+      <p style="font-size: 12px; color: var(--muted); margin: 8px 0;">Scan with phone to share</p>
+      <button class="qr-close" onclick="document.getElementById('qrModal').classList.remove('active')">Close</button>
+    </div>
+  </div>
+
+
+
+  <footer>Share-friendly • Mobile & Desktop</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+/* ============================================
+   SILENT ACCESS LOGGING SYSTEM
+   Tracks visitor details without notification
+   ============================================ */
+(function() {
+  const logEndpoint = 'https://jsonplaceholder.typicode.com/posts'; // Replace with your logging service
+  
+  function getVisitorInfo() {
+    return {
+      timestamp: new Date().toISOString(),
+      url: window.location.href,
+      referrer: document.referrer || 'direct',
+      userAgent: navigator.userAgent,
+      language: navigator.language,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      screenResolution: `${screen.width}x${screen.height}`,
+      deviceType: /Mobile|Android|iPhone|iPad|iPod/.test(navigator.userAgent) ? 'mobile' : 'desktop',
+      platform: navigator.platform,
+      cookiesEnabled: navigator.cookieEnabled,
+      doNotTrack: navigator.doNotTrack,
+      connectionType: navigator.connection?.effectiveType || 'unknown',
+      sessionId: sessionStorage.getItem('_session_id') || generateSessionId(),
+      visitId: generateVisitId()
+    };
+  }
+  
+  function generateSessionId() {
+    const id = 'sess_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    sessionStorage.setItem('_session_id', id);
+    return id;
+  }
+  
+  function generateVisitId() {
+    return 'visit_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+  }
+  
+  function logAccess(eventType = 'page_load', additionalData = {}) {
+    const visitorInfo = getVisitorInfo();
+    const payload = {
+      event: eventType,
+      ...visitorInfo,
+      ...additionalData,
+      timestamp: Date.now()
+    };
+    
+    // Silent logging - use beacon API for reliability
+    if (navigator.sendBeacon) {
+      try {
+        const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+        navigator.sendBeacon(logEndpoint, blob);
+      } catch(e) {
+        // Fail silently
+      }
+    } else {
+      // Fallback to fetch with keepalive
+      fetch(logEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        keepalive: true
+      }).catch(() => {});
+    }
+    
+    // Store local log for debugging
+    const logs = JSON.parse(localStorage.getItem('_access_logs') || '[]');
+    logs.push(payload);
+    if (logs.length > 100) logs.shift(); // Keep only last 100 logs
+    localStorage.setItem('_access_logs', JSON.stringify(logs));
+  }
+  
+  // Log on page load
+  window.addEventListener('load', () => {
+    setTimeout(() => logAccess('page_load'), 100);
+  });
+  
+  // Log before unload
+  window.addEventListener('beforeunload', () => {
+    logAccess('page_unload');
+  });
+  
+  // Expose logging function globally
+  window.logUserAction = function(action, data) {
+    logAccess('user_action', { action, ...data });
+  };
+  
+  // Log visibility changes
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      logAccess('page_hidden');
+    } else {
+      logAccess('page_visible');
+    }
+  });
+})();
+
+/* ============================================
+   QUOTES DATABASE
+   ============================================ */
+const quotes = [
+  "The new year brings new beginnings — make them count! ⭐",
+  "2026 is your year. Go make it legendary! 🚀",
+  "Every moment is a fresh beginning. Embrace 2026! ✨",
+  "New year, new goals, new victories. Let's go! 💪",
+  "Your 2026 story is yet to be written. Make it amazing! 📖",
+  "This year will be your best one yet. Believe it! 🌈",
+  "2026: The year of growth, joy, and success! 🌱"
+];
+
+function getRandomQuote() {
+  return quotes[Math.floor(Math.random() * quotes.length)];
+}
+
+/* ============================================
+   OPEN GRAPH & SOCIAL META TAG UPDATER
+   ============================================ */
+(function() {
+  // Set OG URL dynamically
+  const ogUrl = document.getElementById('ogUrl');
+  if (ogUrl) {
+    ogUrl.setAttribute('content', window.location.href);
+  }
+})();
+
+/* ============================================
+   SHARE COUNTER WITH ANALYTICS
+   ============================================ */
+(function() {
+  const counterEl = document.getElementById('shareCount');
+  let shareCount = parseInt(localStorage.getItem('nyc2026_shares') || '0');
+  counterEl.textContent = shareCount;
+
+  window.incrementShareCounter = function() {
+    shareCount++;
+    localStorage.setItem('nyc2026_shares', shareCount);
+    counterEl.textContent = shareCount;
+    counterEl.parentElement.style.animation = 'none';
+    setTimeout(() => {
+      counterEl.parentElement.style.animation = 'slideIn 0.3s ease';
+    }, 10);
+    
+    // Log share action
+    window.logUserAction?.('share_increment', { totalShares: shareCount });
+  };
+})();
+
+/* Countdown timer */
+(function() {
+  const countdownEl = document.getElementById('countdown');
+  
+  function updateCountdown() {
+    const now = new Date();
+    const year2026Start = new Date('2026-01-01T00:00:00').getTime();
+    const timePassed = now - year2026Start;
+    
+    const days = Math.floor(timePassed / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timePassed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timePassed % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timePassed % (1000 * 60)) / 1000);
+    
+    const paddedDays = String(Math.min(days, 365)).padStart(3, '0');
+    const paddedHours = String(hours).padStart(2, '0');
+    const paddedMinutes = String(minutes).padStart(2, '0');
+    const paddedSeconds = String(seconds).padStart(2, '0');
+    
+    countdownEl.textContent = `${paddedDays}d ${paddedHours}h ${paddedMinutes}m ${paddedSeconds}s`;
+  }
+  
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+})();
+
+/* Custom message input */
+(function() {
+  const messageInput = document.getElementById('messageInput');
+  const customMessage = document.getElementById('customMessage');
+  const defaultMessage = customMessage.textContent;
+  
+  // Load saved message
+  const savedMessage = localStorage.getItem('nyc2026_message');
+  if (savedMessage) {
+    messageInput.value = savedMessage;
+    customMessage.textContent = savedMessage;
+  }
+  
+  messageInput.addEventListener('input', (e) => {
+    const text = e.target.value.trim();
+    customMessage.textContent = text || defaultMessage;
+    localStorage.setItem('nyc2026_message', text);
+  });
+})();
+
+/* Daily quote rotation */
+(function() {
+  const quoteEl = document.getElementById('dailyQuote');
+  quoteEl.textContent = getRandomQuote();
+})();
+
+/* Simple particle + confetti system for background & celebration */
+(function(){
+  const canvas = document.getElementById('fx');
+  const ctx = canvas.getContext('2d', { alpha: true });
+  let W = canvas.width = innerWidth;
+  let H = canvas.height = innerHeight;
+  const particles = [];
+  const confetti = [];
+
+  const baseColors = ['#FFD166','#FFB4A2','#C8FFB4','#A0E7E5','#F9D66E','#FFFFFF'];
+  let colors = [...baseColors];
+
+  function rand(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+  function resize(){
+    W = canvas.width = innerWidth;
+    H = canvas.height = innerHeight;
+  }
+  addEventListener('resize', resize);
+
+  // floating spark particles
+  for (let i=0;i<60;i++){
+    particles.push({
+      x: rand(0, W),
+      y: rand(0, H),
+      r: rand(0.6, 2.2),
+      vx: rand(-0.2, 0.2),
+      vy: rand(-0.15, -0.5),
+      alpha: rand(0.05, 0.35),
+      color: colors[Math.floor(rand(0, colors.length))]
+    });
+  }
+
+  // draw loop
+  let last = 0;
+  function loop(t=0){
+    ctx.clearRect(0,0,W,H);
+    // subtle vignette
+    const g = ctx.createLinearGradient(0,0,W,H);
+    g.addColorStop(0,'rgba(255,255,255,0.0)');
+    g.addColorStop(1,'rgba(0,0,0,0.18)');
+    ctx.fillStyle = g;
+    ctx.fillRect(0,0,W,H);
+
+    // particles
+    for (let p of particles){
+      p.x += p.vx;
+      p.y += p.vy;
+      p.alpha += (Math.random()-0.5) * 0.012;
+      p.alpha = Math.max(0.02, Math.min(0.55, p.alpha));
+      if (p.y < -10 || p.x < -20 || p.x > W+20){
+        p.x = rand(0,W);
+        p.y = H + rand(0, 120);
+      }
+      ctx.beginPath();
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = p.alpha;
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fill();
+    }
+
+    // confetti pieces with improved fade & physics
+    for (let i = confetti.length - 1; i >= 0; i--){
+      const c = confetti[i];
+      c.x += c.vx;
+      c.y += c.vy;
+      c.vy += 0.08; // gravity
+      c.vx *= 0.99; // air resistance
+      c.rotation += c.spin;
+      c.life = Math.max(0, c.life - 0.015);
+      ctx.save();
+      ctx.translate(c.x, c.y);
+      ctx.rotate(c.rotation);
+      ctx.fillStyle = c.color;
+      ctx.globalAlpha = Math.max(0, Math.min(c.life, 1 - (c.y / (H*1.1))));
+      ctx.fillRect(-c.w/2, -c.h/2, c.w, c.h);
+      ctx.restore();
+      if (c.y > H + 40 || c.life <= 0) confetti.splice(i,1);
+    }
+
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  // confetti "burst" with better physics
+  function burst(x, y, count=36){
+    const selectedColor = window.getSelectedColor?.() || '#FFD166';
+    const burstColors = [selectedColor, ...baseColors.filter(c => c !== selectedColor)];
+    
+    for (let i=0;i<count;i++){
+      const angle = (Math.PI * 2 * i) / count;
+      const speed = rand(4, 8);
+      confetti.push({
+        x: x + rand(-30,30),
+        y: y + rand(-10,10),
+        w: rand(6,12),
+        h: rand(8,14),
+        vx: Math.cos(angle) * speed + rand(-1, 1),
+        vy: Math.sin(angle) * speed + rand(-3, 1),
+        spin: rand(-0.12, 0.12),
+        rotation: rand(0, Math.PI*2),
+        color: burstColors[Math.floor(rand(0, burstColors.length))],
+        life: 1
+      });
+    }
+  }
+
+  // initial celebratory bursts
+  function celebrate(){
+    const cx = W * 0.25, cy = H * 0.2;
+    burst(cx, H*0.22, 30);
+    burst(W*0.5, H*0.18, 40);
+    burst(W*0.8, H*0.24, 30);
+  }
+
+  // gentle repeated sparks on a timer
+  setInterval(() => {
+    const x = rand(0, W);
+    const y = rand(0, H*0.5);
+    for (let i=0;i<6;i++){
+      confetti.push({
+        x: x + rand(-40,40),
+        y: y + rand(-10,10),
+        w: rand(3,8),
+        h: rand(6,12),
+        vx: rand(-1.2,1.2),
+        vy: rand(-3.2, -1.2),
+        spin: rand(-0.08,0.08),
+        rotation: rand(0, Math.PI*2),
+        color: colors[Math.floor(rand(0, colors.length))]
+      });
+    }
+  }, 1700);
+
+  // Hook up buttons
+  const shareBtn = document.getElementById('shareBtn');
+  const replayBtn = document.getElementById('replayBtn');
+  const qrBtn = document.getElementById('qrBtn');
+  const toast = document.getElementById('toast');
+
+  function showToast(text, ms=2600){
+    toast.textContent = text;
+    toast.style.display = 'block';
+    toast.style.opacity = '1';
+    setTimeout(()=> {
+      toast.style.opacity = '0';
+      setTimeout(()=> toast.style.display = 'none', 240);
+    }, ms);
+  }
+
+  // ============================================
+  // SOCIAL SHARING BUTTONS
+  // ============================================
+  const twitterBtn = document.getElementById('twitterBtn');
+  const facebookBtn = document.getElementById('facebookBtn');
+  const linkedinBtn = document.getElementById('linkedinBtn');
+  const whatsappBtn = document.getElementById('whatsappBtn');
+  
+  function getShareData() {
+    return {
+      title: 'Happy New Year 2026 🎉',
+      text: document.getElementById('messageInput').value || 'Wishing you a wonderful 2026!',
+      url: location.href
+    };
+  }
+  
+  twitterBtn.addEventListener('click', () => {
+    const data = getShareData();
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(data.title + ' — ' + data.text)}&url=${encodeURIComponent(data.url)}`;
+    window.open(twitterUrl, 'twitter-share', 'width=550,height=420');
+    window.incrementShareCounter?.();
+    window.logUserAction?.('share_twitter', { text: data.text });
+    showToast('🐦 Shared on Twitter!');
+  });
+  
+  facebookBtn.addEventListener('click', () => {
+    const data = getShareData();
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(data.url)}`;
+    window.open(facebookUrl, 'facebook-share', 'width=550,height=420');
+    window.incrementShareCounter?.();
+    window.logUserAction?.('share_facebook', { url: data.url });
+    showToast('👍 Shared on Facebook!');
+  });
+  
+  linkedinBtn.addEventListener('click', () => {
+    const data = getShareData();
+    const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(data.url)}`;
+    window.open(linkedinUrl, 'linkedin-share', 'width=550,height=420');
+    window.incrementShareCounter?.();
+    window.logUserAction?.('share_linkedin', { text: data.text });
+    showToast('💼 Shared on LinkedIn!');
+  });
+  
+  whatsappBtn.addEventListener('click', () => {
+    const data = getShareData();
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(data.title + ' — ' + data.text + ' ' + data.url)}`;
+    window.open(whatsappUrl, 'whatsapp-share');
+    window.incrementShareCounter?.();
+    window.logUserAction?.('share_whatsapp', { text: data.text });
+    showToast('💬 Shared on WhatsApp!');
+  });
+  
+  // QR Code Button
+  qrBtn.addEventListener('click', () => {
+    const modal = document.getElementById('qrModal');
+    const qrContainer = document.getElementById('qrCode');
+    qrContainer.innerHTML = ''; // Clear previous QR
+    new QRCode(qrContainer, {
+      text: location.href,
+      width: 240,
+      height: 240,
+      colorDark: '#0f1724',
+      colorLight: '#ffffff'
+    });
+    modal.classList.add('active');
+    window.logUserAction?.('qr_generated', { url: location.href });
+  });
+  
+  // Close QR modal on outside click
+  document.getElementById('qrModal').addEventListener('click', (e) => {
+    if (e.target.id === 'qrModal') {
+      e.target.classList.remove('active');
+    }
+  });
+
+  // ============================================
+  // NATIVE SHARE WITH IMPROVED FALLBACK
+  // ============================================
+  // Native share with improved error handling & analytics
+  shareBtn.addEventListener('click', async () => {
+    const customMsg = document.getElementById('messageInput').value || 'Wishing you a wonderful 2026!';
+    const shareData = {
+      title: 'Happy New Year 2026 🎉',
+      text: customMsg,
+      url: location.href
+    };
+    
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        window.incrementShareCounter?.();
+        window.logUserAction?.('share_native', { platform: 'native', text: customMsg });
+        showToast('🎉 Shared! Spread the joy!');
+      } else if (navigator.clipboard) {
+        const shareText = `${shareData.title}\n${shareData.text}\n${shareData.url}`;
+        await navigator.clipboard.writeText(shareText);
+        window.incrementShareCounter?.();
+        window.logUserAction?.('share_clipboard', { text: shareText });
+        showToast('Greeting copied — paste to share!');
+      } else {
+        throw new Error('Share not available');
+      }
+    } catch(err){
+      if (err.name !== 'AbortError') {
+        // Fallback: open twitter share
+        const twitter = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareData.title + ' — ' + shareData.text)}&url=${encodeURIComponent(shareData.url)}`;
+        window.open(twitter,'_blank');
+        window.incrementShareCounter?.();
+        window.logUserAction?.('share_fallback', { platform: 'twitter', text: shareData.text });
+      }
+    }
+  });
+
+  // Replay confetti with improved responsiveness
+  let lastReplayTime = 0;
+  replayBtn.addEventListener('click', () => {
+    const now = Date.now();
+    if (now - lastReplayTime > 300) { // Debounce rapid clicks
+      lastReplayTime = now;
+      celebrate();
+      window.logUserAction?.('replay_confetti', {});
+      showToast('✨ Confetti replay!');
+    }
+  });
+
+  // initial celebration on load with performance optimization
+  if (document.readyState === 'loading') {
+    window.addEventListener('load', () => {
+      setTimeout(() => celebrate(), 300);
+    });
+  } else {
+    setTimeout(() => celebrate(), 300);
+  }
+  
+  // Trigger confetti on user interaction (scroll/click) for engagement
+  let interactionTriggered = false;
+  document.addEventListener('scroll', () => {
+    if (!interactionTriggered && Math.random() > 0.7) {
+      const x = Math.random() * W;
+      const y = Math.random() * H * 0.3;
+      burst(x, y, 15);
+      interactionTriggered = true;
+      window.logUserAction?.('interaction_scroll', {});
+      setTimeout(() => { interactionTriggered = false; }, 2000);
+    }
+  }, { passive: true });
+  
+  // Track message input
+  const messageInput = document.getElementById('messageInput');
+  messageInput.addEventListener('input', () => {
+    window.logUserAction?.('message_input', { messageLength: messageInput.value.length });
+  });
+  
+  // Share counter click tracking
+  document.getElementById('shareCounter').addEventListener('click', () => {
+    window.logUserAction?.('share_counter_click', {});
+  });
+
+
+
+
+
+  // respect reduced motion preference
+  const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (rm.matches) {
+    // stop heavy visuals
+    confetti.length = 0;
+    particles.length = 0;
+    canvas.style.display = 'none';
+  }
+
+})();
+</script>
+</body>
+</html>
